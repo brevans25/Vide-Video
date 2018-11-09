@@ -5,22 +5,22 @@ class Catalog extends Component {
   constructor() {
     super();
     this.state = {
-      movies: {}
+      movies: []
     };
   }
 
-  componentDidMount() {
+  doSearch = query => {
     fetch(
-      "https://api.themoviedb.org/3/search/movie?query=avengers&api_key=4db4144033ef5a34afbec19191f494c4&language=en-US&page=1&"
+      `https://api.themoviedb.org/3/search/movie?query=${query}&api_key=4db4144033ef5a34afbec19191f494c4&language=en-US&page=1&`
     )
       .then(response => response.json())
       .then(responseData => {
-        this.setState({ movies: responseData });
+        this.setState({ movies: responseData.results });
       })
       .catch(error => {
         console.log("There was an error fetching and parsing data", error);
       });
-  }
+  };
 
   render() {
     console.log(this.state.movies);
@@ -28,25 +28,27 @@ class Catalog extends Component {
       <React.Fragment>
         <div className="main-title">
           <h1>Search for Movie</h1>
-          <SearchForm />
+          <SearchForm onSearch={this.doSearch} />
         </div>
 
         <table className="table">
           <thead>
             <tr>
-              <th>Id</th>
+              <th>#id</th>
               <th>Title</th>
               <th>Available</th>
-              <th>Select</th>
+              <th>Price</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>oi</td>
-              <td>vaca</td>
-              <td>Hi</td>
-              <td>There</td>
-            </tr>
+            {this.state.movies.map(movie => (
+              <tr>
+                <td>{movie.id}</td>
+                <td>{movie.original_title}</td>
+                <td>{movie.popularity}</td>
+                <td>{movie.release_date}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </React.Fragment>
