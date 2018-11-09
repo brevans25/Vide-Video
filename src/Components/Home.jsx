@@ -5,7 +5,7 @@ const Home = () => {
     <div className="jumbotron">
       <h1 className="display-4">Welcome to VideVideo</h1>
       <p className="lead">
-        VideVideo was, back in the 90s, the biggest rental service in Anapolis,
+        Vide Video was, back in the 90s, the biggest rental service in Anapolis,
         my hometown in Brazil. As a kid, I spent several hours browsing through
         their collection of video tapes and eventually, DVDs.
         <br />
