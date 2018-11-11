@@ -9,6 +9,10 @@ class Catalog extends Component {
     };
   }
 
+  componentDidMount() {
+    //Show Trending component here, when the page loads!
+  }
+
   doSearch = query => {
     fetch(
       `https://api.themoviedb.org/3/search/movie?query=${query}&api_key=4db4144033ef5a34afbec19191f494c4&language=en-US&page=1&`
