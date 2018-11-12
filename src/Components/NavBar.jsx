@@ -35,6 +35,9 @@ const NavBar = () => {
               My Selection
             </NavLink>
           </li>
+          <li>
+            <span className="badge badge-pill badge-warning mt-2">1</span>
+          </li>
           <li className="nav-item">
             <NavLink className="nav-link" to="#">
               Contact

@@ -8,6 +8,8 @@ import Home from "./components/Home";
 import NavBar from "./components/NavBar";
 import Catalog from "./components/Catalog";
 import Trending from "./components/Trending";
+import MySelection from "./components/MySelection";
+import SelectionCounter from "./components/SelectionCounter";
 import "./App.css";
 
 const App = () => (
@@ -17,6 +19,7 @@ const App = () => (
       <Route exact path="/" component={Home} />
       <Route path="/catalog" component={Catalog} />
       <Route path="/trending" component={Trending} />
+      <Route path="/myselection" component={MySelection} />
     </div>
   </BrowserRouter>
 );

@@ -5,8 +5,17 @@ class Catalog extends Component {
   constructor() {
     super();
     this.state = {
-      movies: []
+      movies: [],
+      available: [],
+      prices: [2.99, 4.99, 6.99],
+      moviecount: 0
     };
+  }
+
+  //For the AVAILABLE column
+  isAvailable() {
+    let randomAvailable = Math.random() >= 0.5;
+    return this.state.available[randomAvailable];
   }
 
   componentDidMount() {
@@ -26,8 +35,11 @@ class Catalog extends Component {
       });
   };
 
+  handleAdd = movie => {
+    this.setState({ moviecount: this.state.moviecount + 1 });
+  };
+
   render() {
-    console.log(this.state.movies);
     return (
       <React.Fragment>
         <div className="main-title">
@@ -42,15 +54,24 @@ class Catalog extends Component {
               <th>Title</th>
               <th>Available</th>
               <th>Price</th>
+              <th />
             </tr>
           </thead>
           <tbody>
             {this.state.movies.map(movie => (
-              <tr>
+              <tr key={movie.id}>
                 <td>{movie.id}</td>
                 <td>{movie.original_title}</td>
-                <td>{movie.popularity}</td>
-                <td>{movie.release_date}</td>
+                <td>{this.state.isAvailable}</td>
+                <td>{movie.poster_path}</td>
+                <td>
+                  <button
+                    onClick={() => this.handleAdd(movie)}
+                    className="btn btn-primary btn-sm"
+                  >
+                    Add
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
