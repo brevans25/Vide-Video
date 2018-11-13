@@ -30,63 +30,32 @@ class Trending extends Component {
           <SearchForm />
         </div>
 
-        {this.state.trending.map(trend => (
-          <div id={trend.id} className="carousel slide" data-ride="carousel">
-            <div className="carousel-inner">
-              <div className="carousel-item active">
+        <div className="carousel slide" data-ride="carousel">
+          <div className="carousel-inner">
+            {this.state.trending.map(trend => (
+              //       <div id={trend.id} className="carousel-item">
+              //         <img
+              //           src={`https://image.tmdb.org/t/p/w500${trend.poster_path}`}
+              //           alt={trend.title}
+              //         />
+              //         <div className="carousel-caption d-none d-md-block">
+              //           <h5>...</h5>
+              //           <p>...</p>
+              //         </div>
+              //       </div>
+              //   </div>
+              // </div>
+
+              <div className="carousel-item">
                 <img
                   className="d-block w-100"
-                  src={`http://image.tmdb.org/t/p/w185${trend.poster_path}`}
+                  src={`https://image.tmdb.org/t/p/w500${trend.poster_path}`}
                   alt={trend.title}
                 />
               </div>
-            </div>
+            ))}
           </div>
-        ))}
-
-        {/* <div id={trend.id} classNameName="carousel slide" data-ride="carousel">
-            <div classNameName="carousel-inner">
-              <div classNameName="carousel-item active">
-                <img
-                  classNameName="d-block w-100"
-                  src=
-                  alt={trend.title}
-                />
-              </div>
-              <a
-                classNameName="carousel-control-prev"
-                href="#carouselExampleControls"
-                role="button"
-                data-slide="prev"
-              >
-                <span
-                  classNameName="carousel-control-prev-icon"
-                  aria-hidden="true"
-                />
-                <span classNameName="sr-only">Previous</span>
-              </a>
-              <a
-                classNameName="carousel-control-next"
-                href="#carouselExampleControls"
-                role="button"
-                data-slide="next"
-              >
-                <span
-                  classNameName="carousel-control-next-icon"
-                  aria-hidden="true"
-                />
-                <span classNameName="sr-only">Next</span>
-              </a>
-            </div>
-          </div>
-
-          // <div classNameName="carousel-item" key={trend.id}>
-          //     <img src={trend.poster_path} alt={trend.title} />
-          //     <div classNameName="carousel-caption d-none d-md-block">
-          //     <h5>{trend.original_title}</h5>
-          //     <p>{trend.overview}</p>
-          //     </div>
-          // </div> */}
+        </div>
       </React.Fragment>
     );
   }
