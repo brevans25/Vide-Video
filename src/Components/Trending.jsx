@@ -36,7 +36,7 @@ class Trending extends Component {
               <div className="carousel-item active">
                 <img
                   className="d-block w-100"
-                  src={trend.poster_path}
+                  src={`http://image.tmdb.org/t/p/w185${trend.poster_path}`}
                   alt={trend.title}
                 />
               </div>

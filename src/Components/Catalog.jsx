@@ -13,10 +13,10 @@ class Catalog extends Component {
   }
 
   //For the AVAILABLE column
-  isAvailable() {
+  isAvailable = () => {
     let randomAvailable = Math.random() >= 0.5;
-    return this.state.available[randomAvailable];
-  }
+    return randomAvailable ? "Available" : "Not Available";
+  };
 
   componentDidMount() {
     //Show Trending component here, when the page loads!
@@ -62,7 +62,7 @@ class Catalog extends Component {
               <tr key={movie.id}>
                 <td>{movie.id}</td>
                 <td>{movie.original_title}</td>
-                <td>{this.state.isAvailable}</td>
+                <td>{this.isAvailable()}</td>
                 <td>{movie.poster_path}</td>
                 <td>
                   <button
