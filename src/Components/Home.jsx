@@ -1,9 +1,10 @@
 import React from "react";
+import { Link, NavLink } from "react-router-dom";
 
 const Home = () => {
   return (
     <div className="jumbotron">
-      <h1 className="display-4">Welcome to VideVideo</h1>
+      <h1 className="display-4">Welcome to Vide Video</h1>
       <p className="lead">
         Vide Video was, back in the 90s, the biggest rental service in Anapolis,
         my hometown in Brazil. As a kid, I spent several hours browsing through
@@ -18,9 +19,9 @@ const Home = () => {
         In the VideVideo catalog, you can find a large selection of movies and
         rent them!
       </p>
-      <a className="btn btn-primary btn-lg" href="/" role="button">
+      <Link className="btn btn-primary btn-lg" to="/catalog" role="button">
         Browse Catalog
-      </a>
+      </Link>
     </div>
   );
 };

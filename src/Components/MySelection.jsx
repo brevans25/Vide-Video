@@ -2,8 +2,15 @@ import React, { Component } from "react";
 
 class MySelection extends Component {
   state = {
-    movieCount: 0
+    selectedmovies: [
+      /*pass the movies selected in the catalog*/
+    ]
   };
+
+  handleDelete = movie => {
+    const movies = this.state.movies.filter();
+  };
+
   render() {
     return (
       <table className="table">
@@ -18,6 +25,7 @@ class MySelection extends Component {
         </thead>
         <tbody>
           <tr>
+            {/* {this.state.movies.map(selectedMovie =>.... */}
             <td>Quero</td>
             <td>Dormir</td>
             <td>Pra</td>

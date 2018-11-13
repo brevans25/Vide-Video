@@ -6,7 +6,6 @@ class Catalog extends Component {
     super();
     this.state = {
       movies: [],
-      available: [],
       prices: [2.99, 4.99, 6.99],
       moviecount: 0
     };
@@ -17,10 +16,6 @@ class Catalog extends Component {
     let randomAvailable = Math.random() >= 0.5;
     return randomAvailable ? "Available" : "Not Available";
   };
-
-  componentDidMount() {
-    //Show Trending component here, when the page loads!
-  }
 
   doSearch = query => {
     fetch(
@@ -35,8 +30,11 @@ class Catalog extends Component {
       });
   };
 
+  //This helper function will handle the ADD button
   handleAdd = movie => {
-    this.setState({ moviecount: this.state.moviecount + 1 });
+    this.setState({
+      moviecount: this.state.moviecount + 1
+    });
   };
 
   render() {
@@ -45,6 +43,9 @@ class Catalog extends Component {
         <div className="main-title">
           <h1>Search for Movie</h1>
           <SearchForm onSearch={this.doSearch} />
+          <span className={this.badgeClassUpdate()}>
+            {this.formatMovieCount()}
+          </span>
         </div>
 
         <table className="table">
@@ -63,11 +64,20 @@ class Catalog extends Component {
                 <td>{movie.id}</td>
                 <td>{movie.original_title}</td>
                 <td>{this.isAvailable()}</td>
-                <td>{movie.poster_path}</td>
+                <td>
+                  {
+                    this.state.prices[
+                      Math.floor(Math.random() * this.state.prices.length)
+                    ]
+                  }
+                </td>
                 <td>
                   <button
                     onClick={() => this.handleAdd(movie)}
                     className="btn btn-primary btn-sm"
+                    disabled={
+                      this.isAvailable === "Not Available" ? "disabled" : ""
+                    }
                   >
                     Add
                   </button>
@@ -78,6 +88,18 @@ class Catalog extends Component {
         </table>
       </React.Fragment>
     );
+  }
+
+  //This helper function will update the movie count.If moviecount != 0, counter will show the amount of movies added
+  formatMovieCount() {
+    const { moviecount } = this.state; //object Destructuring
+    return moviecount === 0 ? "" : moviecount;
+  }
+
+  badgeClassUpdate() {
+    let movieCountClass = "badge m-2 badge-";
+    movieCountClass += this.state.moviecount === 0 ? "warning" : "primary";
+    return movieCountClass;
   }
 }
 
