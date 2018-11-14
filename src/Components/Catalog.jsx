@@ -32,7 +32,7 @@ class Catalog extends Component {
       moviecount: this.state.moviecount + 1,
       selectedmovies: this.state.movies
     });
-    console.log(this.setState.selectedmovies);
+    console.log(this.state.selectedmovies);
   };
 
   doSearch = query => {
