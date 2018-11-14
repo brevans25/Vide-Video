@@ -7,9 +7,9 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Home from "./components/Home";
 import NavBar from "./components/NavBar";
 import Catalog from "./components/Catalog";
+import Movie from "./components/Movie";
 import Trending from "./components/Trending";
 import MySelection from "./components/MySelection";
-import SelectionCounter from "./components/SelectionCounter";
 import "./App.css";
 
 const App = () => (

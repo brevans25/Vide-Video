@@ -1,69 +1,15 @@
 import React, { Component } from "react";
 import SearchForm from "./SearchForm";
 
-class Catalog extends Component {
-  constructor() {
-    super();
-    this.state = {
-      movies: [],
-      prices: [2.99, 4.99, 6.99],
-      selectedmovies: [],
-      moviecount: 0
-    };
-  }
-
-  //For the AVAILABLE column
-  isAvailable = () => {
-    let randomAvailable = Math.random() >= 0.5;
-    return randomAvailable ? "Available" : "Not Available";
-  };
-
-  //For the PRICE column
-  getPrice = () => {
-    const randomPrice = this.state.prices[
-      Math.floor(Math.random() * this.state.prices.length)
-    ];
-    return randomPrice;
-  };
-
-  //This helper function will handle the ADD button
-  handleAdd = movie => {
-    this.setState({
-      moviecount: this.state.moviecount + 1,
-      selectedmovies: this.state.movies
-    });
-    console.log(this.setState.selectedmovies);
-  };
-
-  doSearch = query => {
-    fetch(
-      `https://api.themoviedb.org/3/search/movie?query=${query}&api_key=4db4144033ef5a34afbec19191f494c4&language=en-US&page=1&`
-    )
-      .then(response => response.json())
-      .then(responseData =>
-        responseData.results.map(movie => {
-          movie.available = this.isAvailable();
-          movie.price = this.getPrice();
-          return movie;
-        })
-      )
-      .then(movies => {
-        this.setState({ movies: movies });
-      })
-      .catch(error => {
-        console.log("There was an error fetching and parsing data", error);
-      });
-  };
+class NewCatalog extends Component {
+  state = {};
 
   render() {
     return (
       <React.Fragment>
         <div className="main-title">
           <h1>Search for Movie</h1>
-          <SearchForm onSearch={this.doSearch} />
-          <span className={this.badgeClassUpdate()}>
-            {this.formatMovieCount()}
-          </span>
+          <SearchForm onSearch={this.doSearch} /> //THE PROBLEM IS HERE!
         </div>
 
         <table className="table">
@@ -115,4 +61,4 @@ class Catalog extends Component {
   }
 }
 
-export default Catalog;
+export default NewCatalog;
