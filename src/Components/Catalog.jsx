@@ -30,9 +30,9 @@ class Catalog extends Component {
   handleAdd = movie => {
     this.setState({
       moviecount: this.state.moviecount + 1,
-      selectedmovies: this.state.movies
+      selectedmovies: this.state.selectedmovies + 1
     });
-    console.log(this.state.selectedmovies);
+    console.log();
   };
 
   doSearch = query => {
