@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import SearchForm from "./SearchForm";
 
 class Trending extends Component {
   constructor() {
@@ -27,34 +26,17 @@ class Trending extends Component {
       <React.Fragment>
         <div>
           <h1>Now Trending...</h1>
-          <SearchForm />
         </div>
 
-        <div className="carousel slide" data-ride="carousel">
-          <div className="carousel-inner">
-            {this.state.trending.map(trend => (
-              //       <div id={trend.id} className="carousel-item">
-              //         <img
-              //           src={`https://image.tmdb.org/t/p/w500${trend.poster_path}`}
-              //           alt={trend.title}
-              //         />
-              //         <div className="carousel-caption d-none d-md-block">
-              //           <h5>...</h5>
-              //           <p>...</p>
-              //         </div>
-              //       </div>
-              //   </div>
-              // </div>
-
-              <div className="carousel-item">
-                <img
-                  className="d-block w-100"
-                  src={`https://image.tmdb.org/t/p/w500${trend.poster_path}`}
-                  alt={trend.title}
-                />
-              </div>
-            ))}
-          </div>
+        <div>
+          {this.state.trending.map(trend => (
+            <div id={trend.id}>
+              <img
+                src={`https://image.tmdb.org/t/p/w500${trend.poster_path}`}
+                alt={trend.title}
+              />
+            </div>
+          ))}
         </div>
       </React.Fragment>
     );

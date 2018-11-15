@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import Catalog from "./Catalog";
+import MovieCount from "./MovieCount";
 
 class NavBar extends React.Component {
   render() {
@@ -38,9 +38,7 @@ class NavBar extends React.Component {
               </NavLink>
             </li>
             <li>
-              {/* <span className={this.badgeClassUpdate}>
-                {this.formatMovieCount()}
-              </span> */}
+              <MovieCount />
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="#">
