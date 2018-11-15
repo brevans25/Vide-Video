@@ -41,8 +41,8 @@ class NavBar extends React.Component {
               <MovieCount />
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="#">
-                Contact
+              <NavLink className="nav-link" to="/moviecuriosities">
+                Movie Curiosities
               </NavLink>
             </li>
           </ul>

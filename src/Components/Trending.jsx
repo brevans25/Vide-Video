@@ -30,7 +30,7 @@ class Trending extends Component {
 
         <div>
           {this.state.trending.map(trend => (
-            <div id={trend.id}>
+            <div key={trend.id}>
               <img
                 src={`https://image.tmdb.org/t/p/w500${trend.poster_path}`}
                 alt={trend.title}

@@ -36,7 +36,7 @@ class MySelection extends Component {
           </thead>
           <tbody>
             {this.state.selection.map(selectedMovie => (
-              <tr>
+              <tr key={selectedMovie.id}>
                 <td>{selectedMovie.id}</td>
                 <td>{selectedMovie.title}</td>
                 <td>{selectedMovie.price}</td>

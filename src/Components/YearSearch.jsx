@@ -22,7 +22,7 @@ class SearchBar extends Component {
           type="search"
           onChange={this.onSearchChange}
           name="search"
-          ref={input => (this.query = input)}
+          ref={input => (this.year = input)}
           placeholder="Search..."
         />
         <button type="submit" id="submit" className="search-button">
