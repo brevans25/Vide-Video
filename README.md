@@ -10,10 +10,10 @@ In the project directory, you can run:
 
 ### Endpoints used in the project:
 
-### `npm test`
+### [Search Movies](https://developers.themoviedb.org/3/search/search-movies)
 
 Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+See the section about [Search Movies](https://developers.themoviedb.org/3/search/search-movies) for more information.
 
 ### `npm run build`
 
