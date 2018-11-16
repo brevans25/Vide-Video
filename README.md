@@ -1,16 +1,14 @@
 # The Vide Video Project
 
-## Available Scripts
+This project was created as part of the necessary requirements for completion of the JavaScript React September 2018 Class offered by Code Louisville.<br>
+For now, it is just a simple prototype of a movie rental service where you can browse movies fetched from the "The Movie Database API", add them to the cart and "rent" them if they are available.
+At the moment, there are some bugs that (I hope) will be squashed in the future, when I get more comfortable using React.
+When I compare this project to the Front-End project I submitted four months ago, in which I had barely two JavaScript functions written, I see how much I learned from this class.
 
+Please, download the repo associated with this project to your computer, run `npm i` to install it and from the project directory, run `npm start` to run the app in the development mode.
 In the project directory, you can run:
 
-### `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### Endpoints used in the project:
 
 ### `npm test`
 
