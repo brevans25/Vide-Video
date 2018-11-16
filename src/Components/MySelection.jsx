@@ -6,8 +6,11 @@ class MySelection extends Component {
   };
 
   //This function controls the DELETE button
-  handleDelete = id => {
-    const selection = this.state.selection.filter(movie => movie.id !== id);
+  handleDelete = index => {
+    const selection = [
+      ...this.state.selection.slice(0, index),
+      ...this.state.selection.slice(index + 1, this.state.selection.length)
+    ];
 
     this.setState({ selection });
 
@@ -15,17 +18,16 @@ class MySelection extends Component {
   };
 
   render() {
-    const selection = this.state.selection.filter(({ available }) => available);
+    if (this.state.selection.length === 0)
+      return <h1>No Movies in the Cart</h1>;
 
-    if (selection.length === 0) return <h1>No Movies in the Cart</h1>;
-
-    const total = selection
+    const total = this.state.selection
       .reduce((sum, { price }) => sum + price, 0)
       .toFixed(2);
 
     return (
       <React.Fragment>
-        <span>You have selected {selection.length} movies:</span>
+        <span>You have selected {this.state.selection.length} movies:</span>
         <table className="table">
           <thead>
             <tr>
@@ -36,14 +38,14 @@ class MySelection extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.selection.map(selectedMovie => (
+            {this.state.selection.map((selectedMovie, index) => (
               <tr key={selectedMovie.id}>
                 <td>{selectedMovie.id}</td>
                 <td>{selectedMovie.title}</td>
                 <td>{selectedMovie.price}</td>
                 <td>
                   <button
-                    onClick={() => this.handleDelete(selectedMovie.id)}
+                    onClick={() => this.handleDelete(index)}
                     className="btn btn-danger btn-sm"
                   >
                     Delete

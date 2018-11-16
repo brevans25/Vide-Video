@@ -6,7 +6,8 @@ At the moment, there are some bugs that (I hope) will be squashed in the future,
 When I compare this project to the Front-End project I submitted four months ago, in which I had barely two JavaScript functions written, I see how much I learned from this class.
 
 Please, download the repo associated with this project to your computer, run `npm i` to install it and from the project directory, run `npm start` to run the app in the development mode.
-In the project directory, you can run:
+
+NOTE: It may require running `npm install -g react-scripts`
 
 ### Endpoints used in the project:
 
