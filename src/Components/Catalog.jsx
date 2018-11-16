@@ -41,6 +41,8 @@ class Catalog extends Component {
     });
 
     localStorage.setItem("selected-movies", JSON.stringify(selectedmovies));
+
+    console.log(moviecount);
   };
 
   doSearch = query => {
@@ -69,6 +71,9 @@ class Catalog extends Component {
       <React.Fragment>
         <div className="main-title">
           <h1>Search for Movie</h1>
+          <span className={this.badgeClassUpdate()}>
+            {this.formatMovieCount()}
+          </span>
           <SearchForm onSearch={this.doSearch} />
         </div>
 
@@ -93,10 +98,13 @@ class Catalog extends Component {
                   <td>{movie.available}</td>
                   <td>{movie.price}</td>
                   <td>
+                    {console.log(movie)}
                     <button
                       onClick={() => this.handleAdd(movie)}
                       className="btn btn-primary btn-sm"
-                      // disabled={this.isAvailable() ? "Not Available" : " "}
+                      disabled={
+                        movie.available === "Available" ? undefined : "disabled"
+                      }
                     >
                       Add
                     </button>
@@ -108,6 +116,17 @@ class Catalog extends Component {
         )}
       </React.Fragment>
     );
+  }
+
+  formatMovieCount() {
+    const { moviecount } = this.state; //object Destructuring
+    return moviecount === 0 ? "" : moviecount;
+  }
+
+  badgeClassUpdate() {
+    let movieCountClass = "badge m-2 badge-";
+    movieCountClass += this.state.moviecount === 0 ? "warning" : "primary";
+    return movieCountClass;
   }
 }
 
