@@ -10,10 +10,21 @@ In the project directory, you can run:
 
 ### Endpoints used in the project:
 
+### [Trending Movies](https://developers.themoviedb.org/3/trending/get-trending)
+
+In the `CATALOG` tab in the NavBar, the user can find a selection of weekly trending movies. The weekly list tracks items over a 7 day period, with a 7 day half life.
+
 ### [Search Movies](https://developers.themoviedb.org/3/search/search-movies)
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [Search Movies](https://developers.themoviedb.org/3/search/search-movies) for more information.
+Still in the `CATALOG` page, the user can search for movie titles and retrieve a list of movies from the API.<br>
+This list will be displayed in a table where the user can check the movies id, title, availability and price.<br>
+`Availability` was generated using a boolean value. If Available, the user will see an `ADD` button. If Not Available, the button will be disabled.<br>
+The `Price` column was generated using a method to iterate through an array with three random prices.<br>
+
+Using `localStorage` I sent the movies added by the user to the tab `MY SELECTION`.<br>
+In this tab the users can see the total amount they should pay for the movies they selected and also delete movies from the table.
+
+### [Search Movies](https://developers.themoviedb.org/3/search/search-movies)
 
 ### `npm run build`
 
