@@ -50,13 +50,6 @@ class NavBar extends React.Component {
       </nav>
     );
   }
-
-  //This method updates the MovieCount badge dynamically
-  // badgeClassUpdate() {
-  //   let movieCountClass = "badge m-2 badge-";
-  //   movieCountClass += this.state.movieCount === 0 ? "warning" : "primary";
-  //   return movieCountClass;
-  // }
 }
 
 export default NavBar;

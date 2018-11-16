@@ -11,7 +11,7 @@ class MovieCuriosities extends Component {
 
   popularMovies = year => {
     fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=4db4144033ef5a34afbec19191f494c4&year=${year}&language=en-US&sort_by=popularity.asc&include_adult=false&include_video=false&page=1`
+      `https://api.themoviedb.org/3/discover/movie?api_key=4db4144033ef5a34afbec19191f494c4&year=${year}&language=en-US&page=1`
     )
       .then(response => response.json())
       .then(responseData => {
@@ -26,19 +26,30 @@ class MovieCuriosities extends Component {
     return (
       <React.Fragment>
         <div>
-          <h1>Enter year to see banners of popular movies in that year.</h1>
+          <h1>
+            Enter year to see banners of popular movies in a designated year.
+          </h1>
         </div>
 
         <YearSearch onSearch={this.popularMovies} />
 
         <div>
-          {this.state.popularmovies.map(pop => (
-            <div key={pop.id}>
-              <img
-                src={`http://image.tmdb.org/t/p/w500${pop.poster_path}`}
-                alt={pop.title}
-              />
-            </div>
+          {this.state.popularmovies.map(popularmovie => (
+            <ul className="list-unstyled" key={popularmovie.id}>
+              <li className="media">
+                <img
+                  className="mr-3"
+                  src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2/${
+                    popularmovie.poster_path
+                  }`}
+                  alt={popularmovie.title}
+                />
+                <div className="media-body">
+                  <h5 className="mt-0 mb-1">{popularmovie.original_title}</h5>
+                  {popularmovie.overview}
+                </div>
+              </li>
+            </ul>
           ))}
         </div>
       </React.Fragment>

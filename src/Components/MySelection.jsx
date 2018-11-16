@@ -5,6 +5,7 @@ class MySelection extends Component {
     selection: JSON.parse(localStorage.getItem("selected-movies") || "[]")
   };
 
+  //This function controls the DELETE button
   handleDelete = id => {
     const selection = this.state.selection.filter(movie => movie.id !== id);
 
@@ -16,7 +17,7 @@ class MySelection extends Component {
   render() {
     const selection = this.state.selection.filter(({ available }) => available);
 
-    if (selection.length === 0) return <span>No Movies in the Cart</span>;
+    if (selection.length === 0) return <h1>No Movies in the Cart</h1>;
 
     const total = selection
       .reduce((sum, { price }) => sum + price, 0)

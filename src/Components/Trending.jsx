@@ -30,14 +30,80 @@ class Trending extends Component {
 
         <div>
           {this.state.trending.map(trend => (
-            <div key={trend.id}>
-              <img
-                src={`https://image.tmdb.org/t/p/w500${trend.poster_path}`}
-                alt={trend.title}
-              />
-            </div>
+            <ul className="list-unstyled" key={trend.id}>
+              <li className="media">
+                <img
+                  className="mr-3"
+                  src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2/${
+                    trend.poster_path
+                  }`}
+                  alt={trend.title}
+                />
+                <div className="media-body">
+                  <h5 className="mt-0 mb-1">{trend.original_title}</h5>
+                  {trend.overview}
+                </div>
+              </li>
+            </ul>
           ))}
         </div>
+
+        {
+          //This will render a beautiful carousel to render the banners in the future
+          /* <div>
+          {this.state.trending.map((trend, index) => (
+            <div
+              id="carouselExampleControls"
+              className="carousel slide"
+              data-ride="carousel"
+              key={trend.id}
+            >
+              <div
+                className="carousel-inner"
+                {...(index === 0 ? "active" : "")}
+              >
+                <div className="carousel-item">
+                  <img
+                    src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2/${
+                      trend.poster_path
+                    }`}
+                    alt={trend.title}
+                  />
+                  <div className="carousel-caption d-none d-md-block">
+                    <h5>{trend.original_title}</h5>
+                    <p>{trend.overview}</p>
+                  </div>
+                </div>
+              </div>
+
+              <a
+                className="carousel-control-prev"
+                href="#carouselExampleControls"
+                role="button"
+                data-slide="prev"
+              >
+                <span
+                  className="carousel-control-prev-icon"
+                  aria-hidden="true"
+                />
+                <span className="sr-only">Previous</span>
+              </a>
+              <a
+                className="carousel-control-next"
+                href="#carouselExampleControls"
+                role="button"
+                data-slide="next"
+              >
+                <span
+                  className="carousel-control-next-icon"
+                  aria-hidden="true"
+                />
+                <span className="sr-only">Next</span>
+              </a>
+            </div>
+          ))}
+        </div> */
+        }
       </React.Fragment>
     );
   }

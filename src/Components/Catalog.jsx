@@ -16,13 +16,13 @@ class Catalog extends Component {
     };
   }
 
-  //For the AVAILABLE column
+  //This function generates a random boolean value that is used to evaluate if a movie is available or not.
   isAvailable = () => {
     let randomAvailable = Math.random() >= 0.5;
     return randomAvailable ? "Available" : "Not Available";
   };
 
-  //For the PRICE column
+  //This function is used to generate a random price for a movie
   getPrice = () => {
     const randomPrice = this.state.prices[
       Math.floor(Math.random() * this.state.prices.length)
@@ -45,6 +45,7 @@ class Catalog extends Component {
     console.log(moviecount);
   };
 
+  //This function is used to fetch the data from the MovieDB API, parse its data and store the data retrieved.
   doSearch = query => {
     fetch(
       `https://api.themoviedb.org/3/search/movie?query=${query}&api_key=4db4144033ef5a34afbec19191f494c4&language=en-US&page=1&`
@@ -118,6 +119,7 @@ class Catalog extends Component {
     );
   }
 
+  //This data will be eventually passed to a <li> item that will be placed by the 'MY SELECTION' to inform the user how many movies he added to the cart.
   formatMovieCount() {
     const { moviecount } = this.state; //object Destructuring
     return moviecount === 0 ? "" : moviecount;
