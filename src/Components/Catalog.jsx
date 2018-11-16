@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import SearchForm from "./SearchForm";
-import MovieCount from "./MovieCount";
+// import MovieCount from "./MovieCount";
 import Trending from "./Trending";
 
 class Catalog extends Component {

@@ -23,7 +23,7 @@ class SearchBar extends Component {
           onChange={this.onSearchChange}
           name="search"
           ref={input => (this.year = input)}
-          placeholder="Search..."
+          placeholder="Enter a year. For ex: 1992"
         />
         <button type="submit" id="submit" className="search-button">
           <i className="material-icons icn-search">Search</i>
