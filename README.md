@@ -24,6 +24,6 @@ The `Price` column was generated using a method to iterate through an array with
 Using `localStorage` I sent the movies added by the user to the tab `MY SELECTION`.<br>
 In this tab the users can see the total amount they should pay for the movies they selected and also delete movies from the table.
 
-### [Discover Movies](hhttps://developers.themoviedb.org/3/discover/movie-discover)
+### [Discover Movies](https://developers.themoviedb.org/3/discover/movie-discover)
 
 In the tab `MOVIE CURIOSITIES`, the user can type a year and retrieve a list of the most watched movies in that year.
